@@ -1,34 +1,320 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/app_background"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+
+    <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/Theme.Demo.AppBarOverlay">
+        android:layout_height="match_parent"
+        android:background="@drawable/app_background"
+        android:layout_margin="2dp"
+        android:gravity="center"
+        android:shrinkColumns="*"
+        android:stretchColumns="*"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.Demo.PopupOverlay" />
+            android:layout_height="match_parent"
+          android:background="@drawable/app_background"
+            android:gravity="center">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:layout_height="83dp"
+                android:layout_span="4"
+                android:backgroundTint="#3E17668A"
+                android:gravity="center"
+                android:text="ketsiapp"
+                android:textSize="30sp"
+                tools:ignore="MissingConstraints,TextContrastCheck" />
+        </TableRow>
 
-    <include layout="@layout/content_main" />
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginEnd="@dimen/fab_margin"
-        android:layout_marginBottom="16dp"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+            <TextView
+                android:id="@+id/screen"
+                android:layout_width="match_parent"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:layout_height="196dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginStart="4dp"
+                android:layout_span="4"
+                android:fontFamily="monospace"
+                android:gravity="center|end"
+                android:text="0"
+                android:textAlignment="viewEnd"
+                android:textSize="50sp"
+                app:layout_anchor="@+id/screen"
+                app:layout_anchorGravity="center"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="NotSibling" />
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btnClear"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:backgroundTint="#A60D0D"
+                android:textColor="@color/white"
+                android:onClick="effacer"
+                android:shrinkColumns="*"
+                android:stretchColumns="*"
+                android:text="AC"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnPlusOrMoins"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="plusMoins"
+                android:text="+/-"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnMod"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="setOperation"
+                android:text="%"
+                android:textSize="25sp" />
+
+
+            <Button
+                android:id="@+id/btnDiv"
+                android:layout_width="133dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="setOperation"
+                android:text="/"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn7"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="7"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn8"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="8"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn9"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="9"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnFois"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="setOperation"
+                android:text="*"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="4"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="5"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn6"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="6"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnMoins"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="setOperation"
+                android:text="-"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn1"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="1"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn2"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="2"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="3"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnPlus"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="setOperation"
+                android:text="+"
+                android:textSize="25sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/app_background"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn0"
+                android:layout_width="185dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:layout_span="2"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ajouterChiffre"
+                android:text="0"
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnVirgul"
+                android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:background="@drawable/app_background"
+                android:textColor="@color/white"
+                android:onClick="ValDecimal"
+                android:text="."
+                android:textSize="25sp" />
+
+            <Button
+                android:id="@+id/btnEgal"
+                android:layout_width="129dp"
+                android:layout_height="80dp"
+                android:layout_margin="4dp"
+                android:textColor="@color/white"
+                android:background="@drawable/app_background"
+                android:onClick="calculer"
+                android:text="="
+                android:textSize="25sp" />
+        </TableRow>
+    </TableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
